@@ -91,7 +91,7 @@
         justify-content: center;
         align-items: center;
         max-width: 400px;
-        margin: 200px auto;
+        margin: auto;
         text-align: center;
         padding: 30px;
         border-radius: 15px;
@@ -99,6 +99,20 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
 
+      #movieImage {
+        width: 300px;
+        height: 450px;
+        border-radius: 10px;
+        margin: 10px;
+      }
+
+      .carousel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
 
     </style>
   </head>
@@ -130,20 +144,19 @@
 
     <div class="movieContainer">
       <h3>Accept to save, reject to discard!</h3>
-      <div id="movieCard">
-        <img
-          id="moviePoster"
-          alt="Movie Poster"
-        />
-        <h4 id="movieTitle">Movie Title</h4>
-        <p id="movieDescription">Movie Description</p>
-        <p id="movieGenre">Genre:</p>
-        <p id="movieReleaseDate">Release Date:</p>
-        <p id="movieRating">Rating:</p>
-        <button id="acceptButton" onclick="acceptMovie()">Accept</button>
-        <button id="rejectButton" onclick="rejectMovie()">Reject</button>
+      <div class="carousel-box">
+        <div class="carousel">
+          <button id="rejectButton" onclick="rejectMovie()">Reject</button>
+          <img id="movieImage" alt="TV Recommendation" />
+          <button id="acceptButton" onclick="acceptMovie()">Accept</button>
+        </div>
+          <h3 id="movieTitle"></h3>
+          <p id="movieReleaseDate"></p>
+          <p id="movieRating"></p>
+          <p id="movieOverview"></p>
+        </div>
+      </div>
     </div>
     <script src="Final-Matchmaker.js"></script>
-    
   </body>
 </html>
