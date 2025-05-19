@@ -13,6 +13,16 @@ const supabaseURL= process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseURL, supabaseKey);
 
+app.get('/', (req, res) => {
+    res.sendFile('public/Final-Home.html', { root: __dirname });
+});
+
+app.get('/', (req, res) => {
+    res.sendFile('public/Final-Matchmaker.html', { root: __dirname });
+});
+
+
+
 app.get('/movies', async (req, res) => {
     console.log("Fetching movies");
 

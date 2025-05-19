@@ -88,10 +88,17 @@
       .movieContainer {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        margin-top: 20px;
+        align-items: center;
+        max-width: 400px;
+        margin: 200px auto;
+        text-align: center;
+        padding: 30px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
+
 
     </style>
   </head>
@@ -136,37 +143,7 @@
         <button id="acceptButton" onclick="acceptMovie()">Accept</button>
         <button id="rejectButton" onclick="rejectMovie()">Reject</button>
     </div>
-    <script type="module">
-      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-    
-      const supabaseUrl = "https://rodyqebebfquibjymod.supabase.co";
-      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZHlxZGViZWJmcXVpYmp5bW9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc1OTU1NDMsImV4cCI6MjA2MzE3MTU0M30.gHm6OUDDIjn2tCiAjdkwuvSo6rdir3VGhhe9f2acmv4"; // replace with your full anon key
-      const supabase = createClient(supabaseUrl, supabaseKey);
-    
-      async function acceptMovie() {
-        const movie = {
-          title: document.getElementById("movieTitle").textContent,
-          overview: document.getElementById("movieDescription").textContent,
-          poster_url: document.getElementById("moviePoster").src,
-          genre: document.getElementById("movieGenre").textContent.replace("Genre: ", ""),
-          created_at: new Date().toISOString()
-        };
-    
-        const { data, error } = await supabase.from("Users").insert([movie]);
-    
-        if (error) {
-          console.error("Insert error:", error.message);
-        } else {
-          console.log("Movie saved:", data);
-          rejectMovie(); // show the next movie after saving
-        }
-      }
-    
-      function rejectMovie() {
-        // Logic to load the next movie (carousel-style or random)
-        console.log("Movie rejected");
-      }
-    </script>
+    <script src="Final-Matchmaker.js"></script>
     
   </body>
 </html>
