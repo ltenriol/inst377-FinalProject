@@ -55,35 +55,6 @@
         border-radius: 5px;
       }
 
-      .searchBar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .searchBar input {
-        padding: 8px 12px;
-        border-radius: 20px;
-        border: none;
-        outline: none;
-        width: 220px;
-      }
-
-      .searchBar button {
-        background-color: #5e5df0;
-        border: none;
-        color: white;
-        padding: 8px 14px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      .searchBar button:hover {
-        background-color: #d9d9e1;
-        color: #ffffff;
-      }
-
       #headerContainer {
         justify-content: center;
         text-align: center;
@@ -101,22 +72,26 @@
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
+
+      #webLogo {
+        width: 35px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
     </style>
   </head>
   <body>
     <header>
       <!-- Title and Navigation Links -->
       <div class="title">
-        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
-      </div>
-
-      <div class="searchBar">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search movies or shows"
-        />
-        <button onclick="handleSearch()">Search</button>
+        <a href="Final-Home.html">
+          <img
+            id="webLogo"
+            src="https://static.vecteezy.com/system/resources/thumbnails/010/286/336/small_2x/realistic-open-movie-clapper-open-isolated-on-transparent-background-shown-slate-board-png.png"
+            alt="film icon"
+          />
+          Movie Matchmaker
+        </a>
       </div>
 
       <nav>

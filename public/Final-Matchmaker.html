@@ -56,50 +56,32 @@
         border-radius: 5px;
       }
 
-      .searchBar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .searchBar input {
-        padding: 8px 12px;
-        border-radius: 20px;
-        border: none;
-        outline: none;
-        width: 220px;
-      }
-
-      .searchBar button {
-        background-color: #5e5df0;
-        border: none;
-        color: white;
-        padding: 8px 14px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-
-      .searchBar button:hover {
-        background-color: #d9d9e1;
-        color: #ffffff;
-      }
+      
 
       .movieContainer {
         display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        align-items: flex-start;
+      }
+
+      .carousel-box {
+        display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         max-width: 400px;
-        margin: auto;
         text-align: center;
         padding: 30px;
         border-radius: 15px;
+        padding: 20px;
+        height: 675px;
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
 
-      #movieImage {
+      #movieImage,
+      #tvImage {
         width: 300px;
         height: 450px;
         border-radius: 10px;
@@ -108,30 +90,45 @@
 
       .carousel {
         display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
       }
 
-    </style>
+      .desc {
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      .scroll-feature {
+        max-height: 200px;
+        overflow-y: auto;
+        text-align: left;
+        padding-right: 10px;
+      }
+
+      .starImage{
+        width: 16px;
+        vertical-align: middle;
+        margin-bottom: 3px;
+      }    
+
+      #webLogo {
+        width: 35px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+  </style>
   </head>
   <body>
     <header>
       <!-- Title and Navigation Links -->
       <div class="title">
-        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
-      </div>
+        <a href="Final-Home.html">
+          <img id="webLogo" src="https://static.vecteezy.com/system/resources/thumbnails/010/286/336/small_2x/realistic-open-movie-clapper-open-isolated-on-transparent-background-shown-slate-board-png.png" alt="film icon"/>
+          Movie Matchmaker
+        </a>
+              </div>
 
-      <div class="searchBar">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search movies or shows"
-        />
-        <button onclick="handleSearch()">Search</button>
-      </div>
-
+      
       <nav>
         <ul>
           <li><a href="Final-Home.html">Home</a></li>
@@ -142,21 +139,45 @@
       </nav>
     </header>
 
+    <div class="desc">
+      <h2>Accept to save, reject to discard!</h2>
+    </div>
+
     <div class="movieContainer">
-      <h3>Accept to save, reject to discard!</h3>
+      <!-- Movie Carousel -->
       <div class="carousel-box">
         <div class="carousel">
-          <button id="rejectButton" onclick="rejectMovie()">Reject</button>
-          <img id="movieImage" alt="TV Recommendation" />
-          <button id="acceptButton" onclick="acceptMovie()">Accept</button>
+          <button id="rejectMovieButton" onclick="rejectMovie()">Reject</button>
+          <img id="movieImage" alt="Movie Recommendation" />
+          <button id="acceptMovieButton" onclick="acceptMovie()">Accept</button>
         </div>
+        <div class="scroll-feature">
           <h3 id="movieTitle"></h3>
-          <p id="movieReleaseDate"></p>
-          <p id="movieRating"></p>
+          <p><strong>Released:</strong> <span id="movieReleaseDate"></span></p>
+          <p><strong>Rating:</strong> <span id="movieRating"></span> <img class="starImage" src="https://pngimg.com/d/star_PNG41507.png" alt="star"/></p>
+
           <p id="movieOverview"></p>
         </div>
       </div>
+
+      <!-- TV Carousel -->
+      <div class="carousel-box">
+        <div class="carousel">
+          <button id="rejectTVButton" onclick="rejectTV()">Reject</button>
+          <img id="tvImage" alt="TV Recommendation" />
+          <button id="acceptTVButton" onclick="acceptTV()">Accept</button>
+        </div>
+        <div class="scroll-feature">
+          <h3 id="tvTitle"></h3>
+          <p><strong>First Aired:</strong> <span id="tvReleaseDate"></span></p>
+          <p><strong>Rating:</strong> <span id="tvRating"></span> <img class="starImage" src="https://pngimg.com/d/star_PNG41507.png" alt="star"/></p>
+
+          <p id="tvOverview"></p>
+        </div>
+      </div>
     </div>
+
     <script src="Final-Matchmaker.js"></script>
+    <script src="Final-Matchmaker-TV.js"></script>
   </body>
 </html>

@@ -6,7 +6,8 @@ const release_dates = [];
 
 let currentImage = 0;
 
-const urlMovie = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+const urlMovie =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_watch_monetization_types=flatrate&watch_region=US";
 const carouselImage = document.getElementById("movieImage");
 const titleElement = document.getElementById("movieTitle");
 const overviewElement = document.getElementById("movieOverview");
@@ -27,9 +28,7 @@ async function fetchMovies() {
 
   movies.forEach((movie) => {
     if (movie.poster_path) {
-      imageUrls.push(
-        `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      );
+      imageUrls.push(`https://image.tmdb.org/t/p/w500${movie.poster_path}`);
       titles.push(movie.title || "Untitled");
       overviews.push(movie.overview || "No description available.");
       release_dates.push(movie.release_date || "Release date unavailable");
@@ -51,23 +50,18 @@ function acceptMovie() {
     overview: overviews[currentImage],
     poster_path: imageUrls[currentImage],
     release_date: release_dates[currentImage],
-    vote_average: ratings[currentImage]
+    vote_average: ratings[currentImage],
   };
 
-  fetch('/movies', {
-    method: 'POST',
+  fetch("/movies", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(movieData)
+    body: JSON.stringify(movieData),
   })
-    .then((result) => result.json())
-    .finally(() => {
-      currentImage = (currentImage + 1) % imageUrls.length;
-      updateMovieDisplay();
-    });
+    rejectMovie();
 }
-
 
 function updateMovieDisplay() {
   carouselImage.src = imageUrls[currentImage];
@@ -76,6 +70,5 @@ function updateMovieDisplay() {
   releaseDateElement.textContent = release_dates[currentImage];
   ratingElement.textContent = ratings[currentImage];
 }
-
 
 fetchMovies();
