@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
     res.sendFile('public/Final-Matchmaker.html', { root: __dirname });
 });
 
-
-
 app.get('/movies', async (req, res) => {
     console.log("Fetching movies");
 
