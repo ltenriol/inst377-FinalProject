@@ -1,0 +1,304 @@
+<html>
+  <head>
+    <style>
+      /* The basics */
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        background-image: linear-gradient(
+          92.88deg,
+          #455eb5 9.16%,
+          #5643cc 43.89%,
+          #673fd7 64.72%
+        );
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 10px 20px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+      }
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .title a {
+        text-decoration: none;
+        color: white;
+      }
+
+      /* Navigation */
+      nav ul {
+        justify-content: flex-end;
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .desc {
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      /* Carousels */
+      .carousel-discovery {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        align-items: flex-start;
+      }
+
+      .carousel-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        text-align: center;
+        padding: 30px;
+        border-radius: 15px;
+        padding: 20px;
+        height: 675px; 
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .carousel-box-other {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        text-align: center;
+        padding: 30px;
+        border-radius: 15px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .carousel-box-other button {
+        margin: 10px 0;
+      }
+
+
+      .carousel {
+        display: flex;
+        align-items: center;
+      }
+
+      /* Buttons */
+      #movieImage,
+      #tvImage {
+        width: 300px;
+        height: 450px;
+        border-radius: 10px;
+        margin: 10px;
+      }
+
+      #image {
+        width: 400px;
+        height: 600px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .button-34 {
+        background: #5e5df0;
+        border-radius: 999px;
+        box-shadow: #5e5df0 0 10px 20px -10px;
+        box-sizing: border-box;
+        color: #ffffff;
+        cursor: pointer;
+        font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+          NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+          EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto,
+          "Helvetica Neue", "Noto Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        opacity: 1;
+        outline: 0 solid transparent;
+        padding: 8px 18px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: fit-content;
+        word-break: break-word;
+        border: 0;
+      }
+
+      .button-34:hover {
+        background: #d9d9e1;
+        color: #ffffff;
+      }
+
+      .buttonContainer {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .searchBar input {
+        padding: 8px 12px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        width: 220px;
+      }
+
+      .searchBar button {
+        background-color: #5e5df0;
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .searchBar button:hover {
+        background-color: #d9d9e1;
+        color: #ffffff;
+      }
+
+      .shuffleButton {
+        background-color: rgba(56, 49, 56, 0.392);
+        border: none;
+        color: white;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .shuffleButton:hover {
+        background-color: #d9d9e1;
+        color: black;
+        transform: scale(1.15);
+      }
+
+      .scroll-feature {
+        max-height: 150px;
+        overflow-y: auto; 
+        text-align: left;
+        padding-right: 10px; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- Title and Navigation Links -->
+      <div class="title">
+        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
+      </div>
+
+      <div class="searchBar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search movies or shows"
+          required
+        />
+        <button type="submit" onclick="handleSearch()">Search</button>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="Final-Home.html">Home</a></li>
+          <li><a href="Final-About.html">About</a></li>
+          <li><a href="Final-Matchmaker.html">Matchmaker</a></li>
+          <li><a href="Final-Watchlist.html">Watchlist</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- The Page Content -->
+    <div class="desc">
+      <h2>Find or Match with movies or shows that you love!</h2>
+    </div>
+
+    <div class="carousel-discovery">
+      <!-- The "Discover Movies" Section -->
+      <div class="carousel-box">
+        <h3>Trending Movies</h3>
+        <div class="carousel">
+          <button class="shuffleButton" onclick="prevMovie()"><</button>
+          <img id="movieImage" alt="Movie Recommendation" />
+          <button class="shuffleButton" onclick="nextMovie()">></button>
+        </div>
+        <div class="scroll-feature">
+        <h3 id="movieTitle"></h3>
+        <p id="movieOverview"></p>
+        </div>
+      </div>
+
+      <!-- The "Discover Shows" Section -->
+      <div class="carousel-box">
+        <h3>Trending Shows</h3>
+        <div class="carousel">
+          <button class="shuffleButton" onclick="prevTV()"><</button>
+          <img id="tvImage" alt="TV Recommendation" />
+          <button class="shufflebutton" onclick="nextTV()">></button>
+        </div>
+        <div class="scroll-feature">
+        <h3 id="tvTitle"></h3>
+        <p id="tvOverview"></p>
+        </div>
+      </div>
+
+      <!-- Other Activities -->
+      <div class="carousel-box-other">
+        <h3>Other pages</h3>
+        <button
+          class="button-34"
+          onclick="window.location.href='Final-Matchmaker.html'"
+        >
+          Check out our Matchmaker!
+        </button>
+
+        <button
+          class="button-34"
+          onclick="window.location.href='Final-Watchlist.html'"
+        >
+          See your saved Movies/Shows!
+        </button>
+      </div>
+    </div>
+
+    <script src="Final-Home-Movies.js"></script>
+    <script src="Final-Home-TV.js"></script>
+  </body>
+</html>

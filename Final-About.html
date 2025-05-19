@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        background-image: linear-gradient(
+          92.88deg,
+          #455eb5 9.16%,
+          #5643cc 43.89%,
+          #673fd7 64.72%
+        );
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 10px 20px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+      }
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .title a {
+        text-decoration: none;
+        color: white;
+      }
+
+      /* Navigation */
+      nav ul {
+        justify-content: flex-end;
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .searchBar input {
+        padding: 8px 12px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        width: 220px;
+      }
+
+      .searchBar button {
+        background-color: #5e5df0;
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .searchBar button:hover {
+        background-color: #d9d9e1;
+        color: #ffffff;
+      }
+
+      #headerContainer {
+        justify-content: center;
+        text-align: center;
+        font-size: 25px;
+        margin: 75px 0 75px 0;
+      }
+
+      .aboutPage {
+        max-width: 800px;
+        margin: 0 auto 50px auto;
+        text-align: center;
+        font-size: 19px;
+        padding: 40px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Title and Navigation Links -->
+      <div class="title">
+        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
+      </div>
+
+      <div class="searchBar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search movies or shows"
+        />
+        <button onclick="handleSearch()">Search</button>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="Final-Home.html">Home</a></li>
+          <li><a href="Final-About.html">About</a></li>
+          <li><a href="Final-Matchmaker.html">Matchmaker</a></li>
+          <li><a href="Final-Watchlist.html">Watchlist</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="headerContainer">
+      <h1>Movie Matchmaker</h1>
+      <h3>Matching you with the movies you'll love!</h3>
+    </div>
+
+    <div class="aboutPage">
+      <h2>About</h2>
+      <p>
+        When you live in a world where there are hundreds of thousands of
+        available movies and shows to watch, finding the right one may be
+        overwhelming. Not to mention, the time to scroll through all
+        the options will take away that precious time you could be
+        spending to watch a film or movie. This is where Movie Matchmaker
+        comes in. Movie Matchmaker is a web application that is created to help
+        users discover new movies and shows with ease; all while making the
+        process fun and engaging!
+      </p>
+      </div>
+      <div class="aboutPage">
+        <h2>How It Works</h2>
+        <p>
+            Movie Matchmaker uses real time data from the TMDB API to deliver 
+            accurate and up to date information about movies and shows. 
+            The matchmaking system is designed to be intuitive and user-friendly, 
+            and offer an interactive experience. Users will use an engaging matchmaking
+            system that are mainly known to be used in dating applications such as Tinder
+            and Bumble. This will allow them to scroll through many options effortlesly.  
+            If a user accepts a movie or show, it will be added to their watchlist.
+            If a user rejects a movie or show, it will be discarded.    
+          </p>
+      </div>
+      </body>
+</html>

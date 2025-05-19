@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        background-image: linear-gradient(
+          92.88deg,
+          #455eb5 9.16%,
+          #5643cc 43.89%,
+          #673fd7 64.72%
+        );
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 10px 20px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+      }
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .title a {
+        text-decoration: none;
+        color: white;
+      }
+
+      /* Navigation */
+      nav ul {
+        justify-content: flex-end;
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .searchBar input {
+        padding: 8px 12px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        width: 220px;
+      }
+
+      .searchBar button {
+        background-color: #5e5df0;
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .searchBar button:hover {
+        background-color: #d9d9e1;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Title and Navigation Links -->
+      <div class="title">
+        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
+      </div>
+
+      <div class="searchBar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search movies or shows"
+        />
+        <button onclick="handleSearch()">Search</button>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="Final-Home.html">Home</a></li>
+          <li><a href="Final-About.html">About</a></li>
+          <li><a href="Final-Matchmaker.html">Matchmaker</a></li>
+          <li><a href="Final-Watchlist.html">Watchlist</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

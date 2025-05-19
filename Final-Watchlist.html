@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        color: whitesmoke;
+        background-image: linear-gradient(
+          92.88deg,
+          #455eb5 9.16%,
+          #5643cc 43.89%,
+          #673fd7 64.72%
+        );
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 10px 20px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+      }
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .title a {
+        text-decoration: none;
+        color: white;
+      }
+
+      /* Navigation */
+      nav ul {
+        justify-content: flex-end;
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .searchBar input {
+        padding: 8px 12px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        width: 220px;
+      }
+
+      .searchBar button {
+        background-color: #5e5df0;
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .searchBar button:hover {
+        background-color: #d9d9e1;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Title and Navigation Links -->
+      <div class="title">
+        <a href="Final-Home.html">🎞️ Movie Matchmaker</a>
+      </div>
+
+      <div class="searchBar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search movies or shows"
+        />
+        <button onclick="handleSearch()">Search</button>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="Final-Home.html">Home</a></li>
+          <li><a href="Final-About.html">About</a></li>
+          <li><a href="Final-Matchmaker.html">Matchmaker</a></li>
+          <li><a href="Final-Watchlist.html">Watchlist</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Watchlist</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(92.88deg, #455eb5, #5643cc, #673fd7);
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .watchlist-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .movie-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+      }
+
+      .movie-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .movie-card h3 {
+        margin: 10px 0 5px;
+        font-size: 18px;
+      }
+
+      .movie-card p {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>🎥 My Saved Watchlist</header>
+    <div class="watchlist-container" id="watchlist"></div>
+
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const supabaseUrl = "https://rodyqebebfquibjymod.supabase.co";
+      const supabaseKey = "your-anon-key-here"; // Replace with your real anon key
+      const supabase = createClient(supabaseUrl, supabaseKey);
+
+      async function loadWatchlist() {
+        const { data, error } = await supabase.from("Users").select("*").order("created_at", { ascending: false });
+
+        if (error) {
+          console.error("Error loading watchlist:", error);
+          return;
+        }
+
+        const container = document.getElementById("watchlist");
+
+        if (data.length === 0) {
+          container.innerHTML = "<p>No saved movies yet.</p>";
+          return;
+        }
+
+        data.forEach((movie) => {
+          const card = document.createElement("div");
+          card.className = "movie-card";
+          card.innerHTML = `
+            <img src="${movie.poster_url}" alt="${movie.title}" />
+            <h3>${movie.title}</h3>
+            <p><strong>Genre:</strong> ${movie.genre}</p>
+            <p>${movie.overview.substring(0, 100)}...</p>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      loadWatchlist();
+    </script>
+  </body>
+</html> -->
