@@ -40,15 +40,34 @@ async function fetchMovies() {
   updateMovieDisplay();
 }
 
-function nextMovie() {
+function rejectMovie() {
   currentImage = (currentImage + 1) % imageUrls.length;
   updateMovieDisplay();
 }
 
-function prevMovie() {
-  currentImage = (currentImage - 1 + imageUrls.length) % imageUrls.length;
-  updateMovieDisplay();
+function acceptMovie() {
+  const movieData = {
+    title: titles[currentImage],
+    overview: overviews[currentImage],
+    poster_path: imageUrls[currentImage],
+    release_date: release_dates[currentImage],
+    vote_average: ratings[currentImage]
+  };
+
+  fetch('/movies', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(movieData)
+  })
+    .then((result) => result.json())
+    .finally(() => {
+      currentImage = (currentImage + 1) % imageUrls.length;
+      updateMovieDisplay();
+    });
 }
+
 
 function updateMovieDisplay() {
   carouselImage.src = imageUrls[currentImage];
