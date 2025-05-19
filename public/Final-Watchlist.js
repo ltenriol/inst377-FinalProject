@@ -2,9 +2,11 @@ async function loadMovieData() {
     await fetch (`/movies`)
     .then((result)  => result.json())
     .then((resultJson) => {
-        const table = document.createElement("movieTable");
+        const table = document.createElement("table");
         table.setAttribute('id', 'movieInfo');
-        
+        table.classList.add('saved-table');
+
+                
         const tableRow = document.createElement("tr");
 
         const tableHeadingTitle = document.createElement("th");
@@ -44,7 +46,7 @@ async function loadMovieData() {
 
             movieTitle.innerHTML = movie.title;
             movieOverview.innerHTML = movie.overview;
-            moviePoster.innerHTML = `<img src="${movie.poster_path}" alt="Movie Poster" width="100" height="150">`;
+            moviePoster.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="Movie Poster" width="100" height="150">`;
             movieGenre.innerHTML = movie.genre;
             movieReleaseDate.innerHTML = movie.release_date;
             movieRating.innerHTML = movie.vote_average;
