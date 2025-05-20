@@ -56,8 +56,6 @@
         border-radius: 5px;
       }
 
-      
-
       .movieContainer {
         display: flex;
         justify-content: space-evenly;
@@ -105,30 +103,59 @@
         padding-right: 10px;
       }
 
-      .starImage{
+      .starImage {
         width: 16px;
         vertical-align: middle;
         margin-bottom: 3px;
-      }    
+      }
 
       #webLogo {
         width: 35px;
         vertical-align: middle;
         margin-right: 5px;
       }
-  </style>
+
+      .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+    </style>
   </head>
   <body>
     <header>
       <!-- Title and Navigation Links -->
       <div class="title">
         <a href="Final-Home.html">
-          <img id="webLogo" src="https://static.vecteezy.com/system/resources/thumbnails/010/286/336/small_2x/realistic-open-movie-clapper-open-isolated-on-transparent-background-shown-slate-board-png.png" alt="film icon"/>
+          <img
+            id="webLogo"
+            src="https://static.vecteezy.com/system/resources/thumbnails/010/286/336/small_2x/realistic-open-movie-clapper-open-isolated-on-transparent-background-shown-slate-board-png.png"
+            alt="film icon"
+          />
           Movie Matchmaker
         </a>
-              </div>
+      </div>
 
-      
       <nav>
         <ul>
           <li><a href="Final-Home.html">Home</a></li>
@@ -146,15 +173,36 @@
     <div class="movieContainer">
       <!-- Movie Carousel -->
       <div class="carousel-box">
+        <h3>Discover Movies</h3>
         <div class="carousel">
-          <button id="rejectMovieButton" onclick="rejectMovie()">Reject</button>
+          <button onclick="rejectMovie()" class="icon-button">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/1200px-Cross_red_circle.svg.png"
+              alt="Reject"
+              class="icon-img"
+            />
+          </button>
+
           <img id="movieImage" alt="Movie Recommendation" />
-          <button id="acceptMovieButton" onclick="acceptMovie()">Accept</button>
+          <button onclick="acceptMovie()" class="icon-button">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Eo_circle_green_white_checkmark.svg/1024px-Eo_circle_green_white_checkmark.svg.png"
+              alt="Accept"
+              class="icon-img"
+            />
+          </button>
         </div>
         <div class="scroll-feature">
           <h3 id="movieTitle"></h3>
           <p><strong>Released:</strong> <span id="movieReleaseDate"></span></p>
-          <p><strong>Rating:</strong> <span id="movieRating"></span> <img class="starImage" src="https://pngimg.com/d/star_PNG41507.png" alt="star"/></p>
+          <p>
+            <strong>Rating:</strong> <span id="movieRating"></span>
+            <img
+              class="starImage"
+              src="https://pngimg.com/d/star_PNG41507.png"
+              alt="star"
+            />
+          </p>
 
           <p id="movieOverview"></p>
         </div>
@@ -162,15 +210,35 @@
 
       <!-- TV Carousel -->
       <div class="carousel-box">
+        <h3>Discover TV shows</h3>
         <div class="carousel">
-          <button id="rejectTVButton" onclick="rejectTV()">Reject</button>
+          <button onclick="rejectTV()" class="icon-button">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/1200px-Cross_red_circle.svg.png"
+              alt="Reject"
+              class="icon-img"
+            />
+          </button>
           <img id="tvImage" alt="TV Recommendation" />
-          <button id="acceptTVButton" onclick="acceptTV()">Accept</button>
+          <button onclick="acceptTV()" class="icon-button">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Eo_circle_green_white_checkmark.svg/1024px-Eo_circle_green_white_checkmark.svg.png"
+              alt="Accept"
+              class="icon-img"
+            />
+          </button>
         </div>
         <div class="scroll-feature">
           <h3 id="tvTitle"></h3>
           <p><strong>First Aired:</strong> <span id="tvReleaseDate"></span></p>
-          <p><strong>Rating:</strong> <span id="tvRating"></span> <img class="starImage" src="https://pngimg.com/d/star_PNG41507.png" alt="star"/></p>
+          <p>
+            <strong>Rating:</strong> <span id="tvRating"></span>
+            <img
+              class="starImage"
+              src="https://pngimg.com/d/star_PNG41507.png"
+              alt="star"
+            />
+          </p>
 
           <p id="tvOverview"></p>
         </div>
