@@ -79,9 +79,10 @@
         padding: 30px;
         border-radius: 15px;
         padding: 20px;
-        height: 675px; 
+        height: 675px;
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .carousel-box-other {
@@ -95,16 +96,22 @@
         padding: 20px;
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .carousel-box-other button {
         margin: 10px 0;
       }
 
-
       .carousel {
         display: flex;
         align-items: center;
+      }
+
+      .carousel-box:hover,
+      .carousel-box-other:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
 
       /* Buttons */
@@ -146,11 +153,13 @@
         width: fit-content;
         word-break: break-word;
         border: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .button-34:hover {
-        background: #d9d9e1;
+        background-color: #d9d9e198;
         color: #ffffff;
+        transform: scale(1.05);
       }
 
       .buttonContainer {
@@ -182,9 +191,9 @@
 
       .scroll-feature {
         max-height: 150px;
-        overflow-y: auto; 
+        overflow-y: auto;
         text-align: left;
-        padding-right: 10px; 
+        padding-right: 10px;
       }
 
       #webLogo {
@@ -234,8 +243,8 @@
           <button class="shuffleButton" onclick="nextMovie()">></button>
         </div>
         <div class="scroll-feature">
-        <h3 id="movieTitle"></h3>
-        <p id="movieOverview"></p>
+          <h3 id="movieTitle"></h3>
+          <p id="movieOverview"></p>
         </div>
       </div>
 
@@ -248,8 +257,8 @@
           <button class="shufflebutton" onclick="nextTV()">></button>
         </div>
         <div class="scroll-feature">
-        <h3 id="tvTitle"></h3>
-        <p id="tvOverview"></p>
+          <h3 id="tvTitle"></h3>
+          <p id="tvOverview"></p>
         </div>
       </div>
 

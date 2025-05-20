@@ -76,6 +76,12 @@
         height: 675px;
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .carousel-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
 
       #movieImage,
@@ -140,6 +146,13 @@
         height: 40px;
         object-fit: contain;
       }
+
+      .icon-button:hover {
+        transform: scale(1.4);
+        transition: transform 0.2s ease;
+      }
+
+
     </style>
   </head>
   <body>
