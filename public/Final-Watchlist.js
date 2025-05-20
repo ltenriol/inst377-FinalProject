@@ -1,3 +1,4 @@
+// Loads the data into Supabase
 async function loadMovieData() {
     await fetch (`/movies`)
     .then((result)  => result.json())
@@ -6,7 +7,7 @@ async function loadMovieData() {
         table.setAttribute('id', 'movieInfo');
         table.classList.add('saved-table');
 
-                
+        // Create table headers        
         const tableRow = document.createElement("tr");
 
         const tableHeadingTitle = document.createElement("th");
@@ -31,6 +32,7 @@ async function loadMovieData() {
 
         table.appendChild(tableRow);
 
+        // Create table rows for each movie
         resultJson.forEach((movie) => {
             const movieTableRow = document.createElement("tr");
             const movieTitle = document.createElement("td");

@@ -1,3 +1,4 @@
+// Space the data
 const tvImageUrls = [];
 const tvTitles = [];
 const tvOverviews = [];
@@ -6,6 +7,7 @@ const tvRelease_dates = [];
 
 let tvCurrentImage = 0;
 
+// URL and elements that display the data
 const urlTV =
   "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_watch_monetization_types=flatrate&watch_region=US";
 const tvCarouselImage = document.getElementById("tvImage");
@@ -14,6 +16,7 @@ const tvOverviewElement = document.getElementById("tvOverview");
 const tvReleaseDateElement = document.getElementById("tvReleaseDate");
 const tvRatingElement = document.getElementById("tvRating");
 
+// Fetching the data
 async function fetchTV() {
   const res = await fetch(urlTV, {
     headers: {
@@ -26,6 +29,7 @@ async function fetchTV() {
   const data = await res.json();
   const tvs = data.results;
 
+  // Filling in the arrays with data
   tvs.forEach((tv) => {
     if (tv.poster_path) {
       tvImageUrls.push(`https://image.tmdb.org/t/p/w500${tv.poster_path}`);
@@ -39,11 +43,13 @@ async function fetchTV() {
   updateTVDisplay();
 }
 
+// Shuffles to next TV show
 function rejectTV() {
     tvCurrentImage = (tvCurrentImage + 1) % tvImageUrls.length;
   updateTVDisplay();
 }
 
+// Accepts the current TV show and stores data in Supabase
 function acceptTV() {
   const tvData = {
     title: tvTitles[tvCurrentImage],
@@ -63,6 +69,7 @@ function acceptTV() {
     rejectTV();
 }
 
+// Updates the card with TV show
 function updateTVDisplay() {
   tvCarouselImage.src = tvImageUrls[tvCurrentImage];
   tvTitleElement.textContent = tvTitles[tvCurrentImage];

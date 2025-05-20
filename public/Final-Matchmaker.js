@@ -1,3 +1,4 @@
+// Create space for data
 const imageUrls = [];
 const titles = [];
 const overviews = [];
@@ -6,6 +7,7 @@ const release_dates = [];
 
 let currentImage = 0;
 
+// URL and elements that display the data
 const urlMovie =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_watch_monetization_types=flatrate&watch_region=US";
 const carouselImage = document.getElementById("movieImage");
@@ -14,6 +16,7 @@ const overviewElement = document.getElementById("movieOverview");
 const releaseDateElement = document.getElementById("movieReleaseDate");
 const ratingElement = document.getElementById("movieRating");
 
+// Fetching the data
 async function fetchMovies() {
   const res = await fetch(urlMovie, {
     headers: {
@@ -26,6 +29,7 @@ async function fetchMovies() {
   const data = await res.json();
   const movies = data.results;
 
+  // Filling in the arrays with data
   movies.forEach((movie) => {
     if (movie.poster_path) {
       imageUrls.push(`https://image.tmdb.org/t/p/w500${movie.poster_path}`);
@@ -39,11 +43,13 @@ async function fetchMovies() {
   updateMovieDisplay();
 }
 
+// Shuffles to next movie
 function rejectMovie() {
   currentImage = (currentImage + 1) % imageUrls.length;
   updateMovieDisplay();
 }
 
+// Shuffles to next movie and adds the data to Supabase
 function acceptMovie() {
   const movieData = {
     title: titles[currentImage],
@@ -63,6 +69,7 @@ function acceptMovie() {
     rejectMovie();
 }
 
+// Updates the card with movie
 function updateMovieDisplay() {
   carouselImage.src = imageUrls[currentImage];
   titleElement.textContent = titles[currentImage];
